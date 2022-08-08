@@ -34,3 +34,62 @@ void dTablero( char tablero[] ){
         printf("\t||====+====+====+====+====+====+====+====||\n");
         
 }
+ 
+void jugada(int *jugador, char tablero[] ){
+        int i, ch, ok, casillero, final = 0;
+ 
+        for( i = 0; i < 42; i++){
+                do{
+                        do{
+                                dTablero( tablero );
+                                printf( "\n\n\t ==> Jugador numero %d <==\n", *jugador );
+                                printf( "\n Ingrece un entero del 1 al 42 para indicar el casillero a marcar...: " );
+                                ok = scanf( "%d", &casillero ) == 1 && casillero >= 1 && casillero <= 9;
+                                while ((ch = getchar()) != EOF && ch != '\n');
+                        }while(!ok);
+                        if( tablero[casillero-1] == 0 ){
+                                if( *jugador == 1 ){
+                                        tablero[casillero-1] = 'X';
+                                        final = verificar( jugador, tablero );
+                                        if (final == 0) *jugador = 2;
+                                }
+                                else{
+                                        tablero[casillero-1] = '0';
+                                        final = verificar( jugador, tablero );
+                                        if (final == 0) *jugador = 1;
+                                }
+                        }
+                        else{
+                                ok = 0;
+                                printf( "\n\n\t ==> Jugador numero %d <==\n", *jugador );
+                                printf( "\n Ingrece un entero del 1 al 42 para indicar el casillero a marcar...: " );
+                        }
+                }while(!ok);
+ 
+ 
+                if( final > 0 ){
+                        dTablero( tablero );
+                        printf( "\n\n !!! Ganador jugador numero %d !!!\n\n", *jugador );
+                        break;
+                }
+        }
+}
+ 
+ 
+ 
+ if(ganador(tablero,colocarFila,colocarColumna,jugador))
+{
+break;
+}
+
+ultimo = jugador;
+jugador++;
+}
+while(sobranEspaciosLibres(matriz));
+
+return 0;
+
+        
+
+}
+ 
