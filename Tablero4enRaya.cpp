@@ -1,4 +1,4 @@
-	#include <stdio.h>
+#include <stdio.h>
 #include <windows.h>
  
 void dTablero( char tablero[] );
@@ -73,23 +73,9 @@ void jugada(int *jugador, char tablero[] ){
                         break;
                 }
         }
+        return 0;
 }
  
  
- 
- if(ganador(tablero,colocarFila,colocarColumna,jugador))
-{
-break;
-}
 
-ultimo = jugador;
-jugador++;
-}
-while(sobranEspaciosLibres(matriz));
-
-return 0;
-
-        
-
-}
  
